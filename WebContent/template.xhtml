@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      >
+      
+		<h:head>
+			<title><ui:insert name="titulo">Título da Página</ui:insert></title>
+		   	<f:loadBundle basename="resources/mensagens" var="msg"/>
+		</h:head>
+
+<h:body bgcolor="#ffffff">
+	<rich:panel>	
+		<ui:insert name="menu">
+			<a href="cadastroUsuario.jsf">Cadastrar Usuário</a> | <a href="listagemUsuarios.jsf">Listagem de Usuários</a> | 
+		</ui:insert>
+	</rich:panel>
+	
+	<rich:panel>		
+		<ui:insert name="principal">Sistema XYZ</ui:insert>
+	</rich:panel>
+</h:body>
+		
+</html>
