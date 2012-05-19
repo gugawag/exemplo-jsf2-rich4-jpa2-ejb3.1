@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -40,7 +41,7 @@ public class Usuario implements Serializable {
 	private Date dataNascimento3;
 
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Endereco endereco;
 	
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)    
