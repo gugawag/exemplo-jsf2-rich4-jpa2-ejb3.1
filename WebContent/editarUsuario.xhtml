@@ -8,12 +8,12 @@
 
 <ui:composition template="template.xhtml">
 
-	<ui:define name="titulo">Cadastro de Usuário</ui:define>
+	<ui:define name="titulo">Edição de Usuário</ui:define>
 	<ui:define name="principal">
 		 <h:form>
 		 		Login: <h:inputText value="#{usuarioBean.usuario.login}" />
 		 		CPF: <h:inputText value="#{usuarioBean.usuario.cpf}" />
-		 		<h:commandButton value="#{msg['usuario.btCadastro.nome']}" action="#{usuarioBean.cadastrar()}" />
+		 		<h:commandButton value="#{msg['usuario.btCadastro.nome']}" action="#{usuarioBean.editar()}" />
 		 </h:form>
 	 	<h:messages/>
 	</ui:define>

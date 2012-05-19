@@ -23,8 +23,7 @@ public class UsuarioRepositorio implements Serializable{
 		
 		//Mostrando abaixo que com sessão do hibernate aberta (entityManager de JPA), ao alterar um objeto gerenciado
 		//será alterado automaticamente no banco de dados (update, delete etc)
-		Usuario uCadastrado = getUsuarioPorLogin(usuario.getLogin());
-		uCadastrado.setLogin(uCadastrado.getLogin() + " - alterado");
+		usuario.setLogin(usuario.getLogin() + " - alterado");
 	}
 	
 	public List<Usuario> getUsuarios(){
@@ -34,15 +33,26 @@ public class UsuarioRepositorio implements Serializable{
 	public Usuario getUsuarioPorLogin(String login){
 		List<Usuario> usuarios = em.createQuery("from Usuario u where u.login=:l").setParameter("l", login).getResultList();
 		if (usuarios != null && usuarios.size()>0){
-			usuarios.get(0).getMensagens();
 			return usuarios.get(0);
 		}
 		return null;
 	}
 	
+	public List<Usuario> getUsuarioPorCPF(String cpf){
+		return em.createQuery("from Usuario u where u.cpf like :inicio").setParameter("inicio", cpf+"%").getResultList();
+	}
+	
+	public List<Usuario> getUsuariosMais1Mensagem(){
+		return em.createQuery("from Usuario u where SIZE(u.mensagens)>1 ").getResultList();
+	}
+	
 	public void remover(Usuario usuario){
 		usuario = em.merge(usuario);
 		em.remove(usuario);
+	}
+
+	public void atualizar(Usuario usuario) {
+		em.merge(usuario);
 	}
 
 }

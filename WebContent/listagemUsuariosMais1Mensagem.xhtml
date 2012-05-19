@@ -8,19 +8,13 @@
 <ui:composition template="template.xhtml">
 	<ui:define name="titulo">Usuários</ui:define>
 	<ui:define name="principal">
-	<h:form>
-		<rich:dataTable value="#{usuarioBean.usuarios}" var="usuario">
+		<rich:dataTable value="#{usuarioBean.usuariosMais1Mensagem}" var="usuario">
 			<f:facet name="header">
 				<h:column>Login</h:column>
 			</f:facet>
 			<h:column>#{usuario.login}</h:column>
-			<h:column>#{usuario.dataNascimento}</h:column>
-			<h:column>#{usuario.dataNascimento2}</h:column>
-			<h:column>#{usuario.dataNascimento3}</h:column>
-			<h:column><h:commandLink action="#{usuarioBean.remover(usuario)}">X</h:commandLink></h:column>
-			<h:column><h:commandLink action="#{usuarioBean.editar(usuario)}">E</h:commandLink></h:column>
+			<h:column>#{usuario.cpf}</h:column>
 		</rich:dataTable>
-	</h:form>
 		<h:messages />
 	</ui:define>
 
