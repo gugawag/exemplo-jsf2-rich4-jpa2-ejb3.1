@@ -22,6 +22,7 @@ public class UsuarioBean implements Serializable{
 	
 	private Usuario usuario;
 	
+
 	public UsuarioBean(){
 		usuario = new Usuario();
 	}
@@ -65,6 +66,10 @@ public class UsuarioBean implements Serializable{
 		return "listagemUsuarios";
 	}
 	
+	public Uf[] getUfs(){
+		return Uf.values();
+	}
+	
 	public String cadastrar(){
 //		Usuario usuario = new Usuario("gugawag8", "123");
 //		List<Mensagem> mensagens = usuario.getMensagens();
@@ -86,8 +91,8 @@ public class UsuarioBean implements Serializable{
 //		endereco.setUf(Uf.PB);
 //		usuario.setEndereco(endereco);
 //		
-//		uRep.cadastrarUsuario(usuario);
-//		usuario = new Usuario();
+		uRep.cadastrarUsuario(usuario);
+		usuario = new Usuario();
 
 		
 		Produto produto = new Produto();

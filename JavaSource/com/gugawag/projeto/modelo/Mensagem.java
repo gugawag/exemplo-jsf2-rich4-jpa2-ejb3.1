@@ -12,6 +12,7 @@ public class Mensagem {
 	@Id @GeneratedValue
 	private int codigo;
 	private String texto;
+	
 	public Mensagem() {
 		super();
 	}

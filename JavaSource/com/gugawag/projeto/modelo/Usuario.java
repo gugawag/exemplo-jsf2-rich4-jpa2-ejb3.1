@@ -24,6 +24,9 @@ public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	private Uf uf;
+	
+
 	@Id @GeneratedValue
 	private Integer codigo;
 	
@@ -127,6 +130,14 @@ public class Usuario implements Serializable {
 	public void setDataNascimento3(Date dataNascimento3) {
 		this.dataNascimento3 = dataNascimento3;
 	}
-	
+
+	public Uf getUf() {
+		return uf;
+	}
+
+	public void setUf(Uf uf) {
+		this.uf = uf;
+	}
+
 
 }

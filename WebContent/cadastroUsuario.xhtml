@@ -13,6 +13,9 @@
 		 <h:form>
 		 		Login: <h:inputText value="#{usuarioBean.usuario.login}" />
 		 		CPF: <h:inputText value="#{usuarioBean.usuario.cpf}" />
+		 		UF: <h:selectOneMenu value="#{usuarioBean.usuario.uf}">
+		 			<f:selectItems value="#{usuarioBean.ufs}"/>
+		 		</h:selectOneMenu>
 		 		<h:commandButton value="#{msg['usuario.btCadastro.nome']}" action="#{usuarioBean.cadastrar()}" />
 		 </h:form>
 	 	<h:messages/>

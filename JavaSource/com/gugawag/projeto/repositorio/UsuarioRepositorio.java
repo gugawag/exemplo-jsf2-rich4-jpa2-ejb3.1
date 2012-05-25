@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.gugawag.projeto.modelo.Usuario;
+import com.gugawag.projeto.modelo.UsuarioVO;
 
 @Stateless
 public class UsuarioRepositorio implements Serializable{
@@ -28,6 +29,10 @@ public class UsuarioRepositorio implements Serializable{
 	
 	public List<Usuario> getUsuarios(){
 		return em.createQuery("from Usuario").getResultList();
+	}
+	
+	public List<UsuarioVO> getUsuariosVO(){
+		return em.createQuery("select new UsuarioVO(u.nome) from Usuario u where u.codigo=:codigo").setParameter("codigo", 3).getResultList();
 	}
 	
 	public Usuario getUsuarioPorLogin(String login){

@@ -10,13 +10,27 @@
 	<ui:define name="principal">
 	<h:form>
 		<rich:dataTable value="#{usuarioBean.usuarios}" var="usuario">
-			<f:facet name="header">
-				<h:column>Login</h:column>
-			</f:facet>
-			<h:column>#{usuario.login}</h:column>
-			<h:column>#{usuario.dataNascimento}</h:column>
-			<h:column>#{usuario.dataNascimento2}</h:column>
-			<h:column>#{usuario.dataNascimento3}</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Login" />
+				</f:facet>
+				#{usuario.login}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Data Nascimento" />
+				</f:facet>
+				#{usuario.dataNascimento}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="UF" />
+				</f:facet>
+				#{usuario.uf}
+			</h:column>
+			
 			<h:column><h:commandLink action="#{usuarioBean.remover(usuario)}">X</h:commandLink></h:column>
 			<h:column><h:commandLink action="#{usuarioBean.editar(usuario)}">E</h:commandLink></h:column>
 		</rich:dataTable>
